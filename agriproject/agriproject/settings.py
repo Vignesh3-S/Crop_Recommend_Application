@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'agriproject.wsgi.application'
 
 #Recaptcha key
 
-RECAPTCHA_PUBLIC_KEY = "6LcKsNglAAAAALIMgjrwzsFTbojqMzx_SUm1qshu"
-RECAPTCHA_PRIVATE_KEY = "6LcKsNglAAAAAJHqZJaze5nzZWv_IUgccHGf0_Hg"
+RECAPTCHA_PUBLIC_KEY = ""
+RECAPTCHA_PRIVATE_KEY = ""
 
 
 # Database
@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'agri',  
         'USER': 'root',  
-        'PASSWORD': 'Viki@ml36',  
+        'PASSWORD': '',  
         'HOST': '127.0.0.1',  
         'PORT': '3306',  
         'OPTIONS': {  
@@ -144,7 +144,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'brsapp33@gmail.com'
-EMAIL_HOST_PASSWORD = 'sqkeczqcyydloipa'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = 'True'
 
 
