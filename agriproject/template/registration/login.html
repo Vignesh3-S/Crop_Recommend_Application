@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'registration/index.html' %}
+    {% block content %}
+    {% load static %}
+    <title>{% block title %}login page{% endblock %}</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'css/loginpages.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </head>
+    <body onload="mess()">
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            function mess(){
+            alert("{{message}}");
+            }
+        </script>
+        {% endfor %}
+        {% endif %}
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login" method="post">
+                        {% csrf_token %}
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            {{forms.username}}
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            {{forms.password}}
+                        </div>
+                        <div class="login__field">
+                            {{forms.captcha}}
+                        </div>
+                        <button class="button login__submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>				
+                    </form>
+                    <div class="social-login">
+                        <a href="{% url 'password_reset' %}" style="text-decoration: none;"><h3>Forgot Password?</h3></a>
+                    </div>
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
+           
+    </body>
+    {% endblock %}
+</html>

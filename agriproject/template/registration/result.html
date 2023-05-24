@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'registration/index.html' %}
+    {% block content %}
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}Result Page{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/result.css' %}">
+    </head>
+    <body>
+    <style>
+        .banner{
+            background-image: url("{% static 'images/' %}{{crop}}.jpg"); 
+        }
+        table, th, td {
+            border-collapse: collapse;
+            height: 50px;
+            text-align: center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bolder;
+            font-size: medium;
+            margin-left: 6%;
+            margin-top: -3%;
+        }
+        tr:hover {background-color: #D6EEEE;}
+</style>
+    </style>
+    <div class="testbox">
+    <form method="post">
+        {% csrf_token %}
+      <div class="banner">
+      </div>
+      <br/>
+      <fieldset>
+        <legend>Result</legend>
+        <div class="colums">
+          <div class="item">
+            <table style="width:80%">
+              <tr>
+                <th>Labels</th>
+                <th>Values</th> 
+              </tr>
+              <tr>
+                <td>Nitrogen Value</td>
+                <td>{{n}}</td>
+              </tr>
+              <tr>
+                <td>Phosphorus Value</td>
+                <td>{{p}}</td>
+              </tr>
+              <tr>
+                <td>Potassium Value</td>
+                <td>{{k}}</td>
+              </tr>
+              <tr>
+                <td>Temperature Value</td>
+                <td>{{t}}</td>
+              </tr>
+              <tr>
+                <td>Humidity Value</td>
+                <td>{{h}}</td>
+              </tr>
+              <tr>
+                <td>Ph Value</td>
+                <td>{{ph}}</td>
+              </tr>
+              <tr>
+                <td>Rainfall Value</td>
+                <td>{{r}}</td>
+              </tr>
+              <tr>
+                <td>Recommended Crop</td>
+                <td>{{crop}}</td>
+              </tr>
+            </table>
+            
+      </fieldset>
+      <br/>
+      <div class="btn-block">
+        <a href="{% url 'pdf' crop n p k t h ph r %}" style="text-decoration: none; font-family: 'Times New Roman', Times, serif;font-weight: bolder;">Generate Pdf</a>
+      </div>
+    </form>
+    </div>
+  </body>
+  {% endblock %}
+</html>

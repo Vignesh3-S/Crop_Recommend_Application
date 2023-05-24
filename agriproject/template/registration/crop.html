@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'registration/index.html' %}
+    {% block content %}
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}agri form{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/agriforms.css' %}">
+    </head>
+    <body onload="mess()">
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            function mess(){
+            alert("{{message}}");
+            }
+        </script>
+        {% endfor %}
+        {% endif %}
+    <style>
+        .banner{
+            background-image: url("{% static 'images/back.jpg' %}"); 
+        }
+    </style>
+    <div class="testbox">
+    <form method="post">
+        {% csrf_token %}
+      <div class="banner">
+      </div>
+      <br/>
+      <fieldset>
+        <legend>Crop Form</legend>
+        <div class="colums">
+          <div class="item">
+            <label for="statename">State Name<span>*</span></label> <br>
+            {{agriform.State_Name}}
+          </div>
+          <div class="item">
+            <label for="districtname"> District Name<span>*</span></label><br>
+            {{agriform.district}}
+          </div>
+          <div class="item">
+            <label for="nitrogen">Nitrogen<span>*</span></label><br>
+            {{agriform.nitrogen}}
+          </div>
+          <div class="item">
+            <label for="phosphorus">Phosphorus<span>*</span></label><br>
+            {{agriform.phosphorus}}
+          </div>
+          <div class="item">
+            <label for="potassium">Potassium<span>*</span></label><br>
+            {{agriform.potassium}}
+          </div>
+          <div class="item">
+            <label for="temperature">Temperature<span>*</span></label><br>
+            {{agriform.temperature}}
+          </div>
+          <div class="item">
+            <label for="humidity">Humidity<span>*</span></label><br>
+            {{agriform.humidity}}
+          </div>
+          <div class="item">
+            <label for="ph">PH<span>*</span></label><br>
+            {{agriform.ph}}
+          </div>
+          <div class="item">
+            <label for="rainfall">Rainfalll<span>*</span></label><br>
+            {{agriform.rainfall}}
+          </div>
+      </fieldset>
+      <br/>
+      <div class="btn-block">
+      <button type="order">Recommend</button>
+      <button type="reset">Reset</button>
+      </div>
+    </form>
+    </div>
+  </body>
+  {% endblock %}
+</html>

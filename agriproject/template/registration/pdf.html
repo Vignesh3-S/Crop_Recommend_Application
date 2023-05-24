@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'registration/index.html' %}
+    {% block content %}
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}Result Pdf{% endblock %}</title>
+    </head>
+    <body>
+        <h1 style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bolder;">Crop Recommend Application</h1>
+        <h2 style="text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bolder;">Recommended Result</h2>
+    <style>
+        table, th, td {
+            border-collapse: collapse;
+            height: 60px;
+            text-align: center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bolder;
+            font-size: medium;
+            margin-left: 6%;
+            margin-top: 2%;
+        }
+</style>
+
+            <table style="width:80%">
+              <tr>
+                <th>Labels</th>
+                <th>Values</th> 
+              </tr>
+              <tr>
+                <td>Nitrogen Value</td>
+                <td>{{n}}</td>
+              </tr>
+              <tr>
+                <td>Phosphorus Value</td>
+                <td>{{p}}</td>
+              </tr>
+              <tr>
+                <td>Potassium Value</td>
+                <td>{{k}}</td>
+              </tr>
+              <tr>
+                <td>Temperature Value</td>
+                <td>{{t}}</td>
+              </tr>
+              <tr>
+                <td>Humidity Value</td>
+                <td>{{h}}</td>
+              </tr>
+              <tr>
+                <td>Ph Value</td>
+                <td>{{ph}}</td>
+              </tr>
+              <tr>
+                <td>Rainfall Value</td>
+                <td>{{r}}</td>
+              </tr>
+              <tr>
+                <td>Recommended Crop</td>
+                <td>{{crop}}</td>
+              </tr>
+            </table>
+  </body>
+  {% endblock %}
+</html>

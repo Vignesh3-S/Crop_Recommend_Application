@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'registration/index.html' %}
+    {% block content %}
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}agri form{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/agriforms.css' %}">
+    </head>
+    <body>
+    <style>
+        .banner{
+            background-image: url("{% static 'images/' %}{{crop}}.jpg"); 
+        }
+    </style>
+    <div class="testbox">
+    <form method="post">
+        {% csrf_token %}
+      <div class="banner">
+      </div>
+      <br/>
+      <fieldset>
+        <legend>NPK for {{crop}}</legend>
+        <div class="colums">
+          <div class="item">
+            <label for="nitrogen">Nitrogen<span>*</span></label><br>
+            {{nitrogen}}
+          </div>
+          <div class="item">
+            <label for="phosphorus">Phosphorus<span>*</span></label><br>
+            {{phosphorous}}
+          </div>
+          <div class="item">
+            <label for="potassium">Potassium<span>*</span></label><br>
+            {{potassium}}
+          </div>
+        </div>
+      </fieldset>
+      <br/>
+    </form>
+    </div>
+  </body>
+  {% endblock %}
+</html>
